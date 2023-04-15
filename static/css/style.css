@@ -493,6 +493,7 @@ h6 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1073,13 +1074,13 @@ section {
 }
 
 .team .member img {
-  max-width: 60%;
-  border-radius: 50%;
+  max-width: 100%;
+  border-radius: 30%;
   margin: 0 0 30px 0;
 }
 
 .team .member h4 {
-  font-weight: 700;
+  font-weight: 70;
   margin-bottom: 2px;
   font-size: 18px;
 }
