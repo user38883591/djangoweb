@@ -40,18 +40,18 @@
     <tr>
         <td>Global Navigation Satellite System(GNSS)</td>
         <td>
-            $100 <button><a href="Hire"> hire</a></button>
+            $100 <button><a href="{% url 'hire' %}?equipment=Global Navigation Satellite System(GNSS)&price=$ 100"> hire</a></button>
         </td>
         <td>$180000</td>
     </tr>
     <tr>
         <td>Total Station</td>
-        <td>$ 300 </td>
+        <td>$ 300 <a href="{% url 'hire' %}?equipment=Total station&price=$ 300">Click to hire</a></td>
         <td>$10000</td>
     </tr>
     <tr>
         <td>Electronic distance meter(EDM)</td>
-        <td>$ 500 </td>
+        <td>$ 500 <a href="{% url 'hire' %}?equipment=Electronic distance meter(EDM)&price=$ 500">Click to hire</a></td>
         <td>$8000</td>
     <tr>
     <td>Unmanned aerial Vehicle</td>
@@ -60,22 +60,22 @@
 </tr>
     <tr>
         <td>Theodolite</td>
-        <td>$750 <a href="Hire">Click to hire</a></td>
+        <td>$750 <a href="{% url 'hire' %}?equipment=Theodolite&price=$ 750">Click to hire</a></td>
         <td>$ 8000</td>
     </tr>
     <tr>
         <td>Laser Scaner</td>
-        <td>$1000 <a href="Hire">Click to hire</a></td>
+        <td>$1000 <a href="{% url 'hire' %}?equipment=Laser Scaner&price=$ 1000">Click to hire</a></td>
         <td>$170000</td>
     </tr>
     <tr>
         <td>Hand held Gps</td>
-        <td>$50 <a href="Hire">Click to hire</a></td>
+        <td>$50 <a href="{% url 'hire' %}?equipment=Hand held Gps=$ 50">Click to hire</a></td>
         <td>$100</td>
     </tr>
     <tr>
         <td>Lever</td>
-        <td>$ 150 <a href="Hire">Click to hire</a></td>
+        <td>$ 150 <a href="{% url 'hire' %}?equipment=Lever&price=$ 150">Click to hire</a></td>
         <td>$ 500</td>
     </tr>
 </table>
