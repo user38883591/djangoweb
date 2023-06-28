@@ -60,8 +60,16 @@ def Hire(request):
         number=request.POST.get("phone")
         days= request.POST.get("days")
         quantity=request.POST.get("quantity")
-
-    return render(request,'Hire.html')
+    else:
+        current_user = request.user
+        equipment = request.GET.get("equipment")
+        price = request.GET.get("price")
+        data = {
+                "user":current_user,
+                "equipment":equipment,
+                "price":price
+                }
+    return render(request,'Hire.html',{"data":data})
 def Buy(request):
     return render(request,'Buy.html')
 def Train(request):

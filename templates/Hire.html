@@ -25,38 +25,38 @@
             <h2>HIRE</h2>
             <br>
 
-            <form action="/Hire" method="post">
+            <form action="{% url 'hire' %}" method="post">
                 {% csrf_token %}
 
 
                 <div class="form-group">
-                    <input type="text" class="form-control mt-4" placeholder="Full name" name="name" required>
+                    <input type="text" class="form-control mt-4" placeholder="Full name" name="name" value="{{ data.user.first_name }} {{ data.user.last_name }}" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control  mt-4" placeholder="Email" name="email" required>
+                    <input type="email" class="form-control  mt-4" placeholder="Email" name="email" value="{{ data.user.email }}" required>
                 </div>
                 <div class="form-group">
-                    <input type="text"class="form-control mt-4"placeholder="Equipment name"name="equipment"required>
+                    <input type="text" class="form-control mt-4" placeholder="Equipment name" name="equipment" value="{{ data.equipment }}" required>
 
                 </div>
 
                 <div class="form-group">
-                    <input type="tel"class="form-control mt-4"placeholder="Phone number"name="phone" required>
+                    <input type="tel" class="form-control mt-4" placeholder="Phone number" name="phone" required>
 
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control mt-4" placeholder="Days to hire"name="days"min="1"max="10" required >
+                    <input type="number" class="form-control mt-4" placeholder="Days to hire" name="days" min="1" max="10" required >
 
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control mt-4"placeholder="how many equipments"name="quantity"min="1"max="5">
+                    <input type="number" class="form-control mt-4" placeholder="how many equipments" name="quantity" min="1" max="5">
 
                 </div>
 
                 <div class="d-grid gap-2">
 
-                    <button class="btn btn-success mt-2" type="submit">Hire</button>
+                    <button class="btn btn-success mt-2 mb-2" type="submit">Hire</button>
                 </div>
 
 
