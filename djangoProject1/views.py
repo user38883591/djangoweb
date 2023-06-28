@@ -14,7 +14,7 @@ def myinv(request):
 def Signup(request):
     if request.method =="POST":
         username = request.POST.get("username")
-        print("Username:", username)
+        # print("Username:", username)
         Fname= request.POST.get("Fname")
         Lname= request.POST.get("Lname")
         Email= request.POST.get("email")
