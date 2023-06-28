@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
 from django.contrib.auth.hashers import make_password
+from django.http import JsonResponse
 
 def Home(request):
     current_user = request.user
@@ -60,6 +61,7 @@ def Hire(request):
         number=request.POST.get("phone")
         days= request.POST.get("days")
         quantity=request.POST.get("quantity")
+        return JsonResponse({'success': True})
     else:
         current_user = request.user
         equipment = request.GET.get("equipment")
