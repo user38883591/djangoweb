@@ -6,9 +6,11 @@ from django.urls import reverse
 from django.contrib.auth.hashers import make_password
 
 def Home(request):
-    return render(request,'index.html')
+    current_user = request.user
+    print(current_user)
+    return render(request,'index.html',{'user':current_user})
 def myinv(request):
-    return render(request,'inventory.html')
+    return render(request, 'inventory.html')
 def Signup(request):
     if request.method =="POST":
         username = request.POST.get("username")
@@ -48,10 +50,10 @@ def Signin(request):
     return render(request,'signin.html')
 def Signout(request):
     logout (request)
-    messages.success("logged out successfully")
+    # messages.success("logged out successfully")
     return redirect('/')
 def Hire(request):
-    if request.method=="Post":
+    if request.method=="POST":
         name=request.POST.get("name")
         email=request.POST.get("email")
         equipment=request.POST.get("equipment")
