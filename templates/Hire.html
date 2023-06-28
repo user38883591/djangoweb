@@ -12,6 +12,9 @@
             text-align: center;
             text-align: -moz-center;
         }
+        .tile{
+            color: green;
+        }
     </style>
 </head>
 <body style="background-color:greenyellow">
@@ -30,7 +33,7 @@
 
 
                 <div class="form-group">
-                    <input type="text" class="form-control mt-4" id="name" placeholder="Full name" name="name" value="{{ data.user.first_name }} {{ data.user.last_name }}" required>
+                    <input type="text" class="form-control mt-4" id="name" placeholder="Full name" name="name" {% if data.user %}value="{{ data.user.first_name }} {{ data.user.last_name }}" {% endif %} required>
                 </div>
 
                 <div class="form-group">
@@ -42,7 +45,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="tel" class="form-control mt-4" id="phone_number" placeholder="Phone number" name="phone" required>
+                    <input type="tel" class="form-control mt-4" id="phone" placeholder="Phone number" name="phone" required>
 
                 </div>
                 <div class="form-group">
@@ -56,62 +59,17 @@
 
                 <div class="d-grid gap-2">
 
-                    <button class="btn btn-success mt-2 mb-2" type="button" onclick="makeRequest()">Hire</button>
+{#                    <button class="btn btn-success mt-2 mb-2" type="button" onclick="makeRequest()">Hire</button>#}
+                    <button class="btn btn-success mt-2 mb-2" type="submit">Hire</button>
                 </div>
 
             </form>
-
+        {% if message %}
+            <p class="tile">{{ message }}</p>
+        {% endif %}
         </div>
     </div>
 </div>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        function makeRequest() {
 
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var equipment = document.getElementById('equipment').value;
-            var phone = document.getElementById('phone').value;
-            var days = document.getElementById('days').value;
-
-            // Create the data payload
-            var data = {
-                name: name,
-                email: email,
-                equipment: equipment,
-                phone: phone,
-                days: days,
-            };
-            // Make an AJAX request to the server
-            // Assuming you're using jQuery for AJAX
-            $.ajax({
-                url: '/hire/',
-                method: 'POST',
-                data: data,
-                success: function(response) {
-                    handleResponse(response);
-                },
-                error: function() {
-                    swal("Error!", "Request failed.", "error");
-                }
-            });
-        }
-
-        function handleResponse(response) {
-            if (response.success) {
-                hireSuccess();
-            } else {
-                swal("Error!", "Request failed.", "error");
-            }
-        }
-        function hireSuccess(){
-            swal({
-              title: "Good job!",
-              text: "You clicked the button!",
-              icon: "success",
-              button: "Home",
-            });
-        }
-    </script>
 </body>
 </html>
