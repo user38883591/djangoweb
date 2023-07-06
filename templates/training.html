@@ -12,6 +12,9 @@
             text-align: center;
             text-align: -moz-center;
         }
+        .tile{
+            color:green;
+        }
     </style>
 </head>
 <body style="background-color:greenyellow">
@@ -25,19 +28,19 @@
             <h2>TRAINING</h2>
             <br>
 
-            <form action="/training" method="post">
+            <form action={% url 'training' %} method="post">
                 {% csrf_token %}
 
 
                 <div class="form-group">
-                    <input type="text" class="form-control mt-4" placeholder="Full name" name="name" required>
+                    <input type="text" class="form-control mt-4" placeholder="Full name" name="name" {% if data.user %}value="{{ data.user.first_name }} {{ data.user.last_name }}" {% endif %} required>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control  mt-4" placeholder="Email" name="email" required>
+                    <input type="email" class="form-control  mt-4" placeholder="Email" name="email" value="{{ data.user.email }}"  required>
                 </div>
                 <div class="form-group">
-                    <input type="text"class="form-control mt-4"placeholder="Equipment(s) to be trained"name="equipment"required>
+                    <input type="text"class="form-control mt-4"placeholder="Equipment(s) to be trained"name="equipment" required>
 
                 </div>
 
@@ -53,12 +56,16 @@
 
                 <div class="d-grid gap-2">
 
-                    <button class="btn btn-success mt-2" type="submit">Submit</button>
+                    <button class="btn btn-success mt-2 mb-2" type="submit">Submit</button>
                 </div>
 
 
 
             </form>
+        {% if message %}
+            <p class="tile">{{ message }}</p>
+        {% endif %}
+
 
         </div>
     </div>

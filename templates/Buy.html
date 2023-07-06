@@ -12,6 +12,10 @@
             text-align: center;
             text-align: -moz-center;
         }
+
+        .tile{
+            color: green;
+        }
     </style>
 </head>
 <body style="background-color:greenyellow">
@@ -21,7 +25,7 @@
       </nav>
     <div class="container-fluid">
     <div class="row text-center" style="padding-left:500px; padding-top:100px"> <br>
-        <div class="col-md-4" style="background-color:darkcyan">
+        <div class="col-md-8" style="background-color:darkcyan">
             <h2>Buy</h2>
             <br>
 
@@ -29,14 +33,14 @@
                 {% csrf_token %}
 
                 <div class="form-group">
-                    <input type="text" class="form-control mt-4" placeholder="Full name" name="name" required>
+                    <input type="text" class="form-control mt-4" placeholder="Full name" name="name" {% if data.user %}value="{{ data.user.first_name }} {{ data.user.last_name }}" {% endif %} required>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control  mt-4" placeholder="Email" name="email" required>
+                    <input type="email" class="form-control  mt-4" placeholder="Email" name="email" value="{{ data.user.email }}"required>
                 </div>
                 <div class="form-group">
-                    <input type="text"class="form-control mt-4"placeholder="Equipment name"name="equipment"required>
+                    <input type="text"class="form-control mt-4"placeholder="Equipment name"name="equipment" value="{{ data.equipment }}"required>
 
                 </div>
                 <div class="form-group">
@@ -50,13 +54,16 @@
 
                 <div class="d-grid gap-2">
 
-                    <button class="btn btn-success mt-2" type="submit">Buy</button>
+                    <button class="btn btn-success mt-2 mb-2" type="submit">Buy</button>
                 </div>
 
 
 
 
             </form>
+        {% if message %}
+            <p class="tile">{{ message }}</p>
+        {% endif %}
 
         </div>
     </div>
