@@ -98,25 +98,23 @@ def Buy(request):
 
 
 def Train(request):
-    if request.method=='post':
-        name=request.POST.get("name")
-        email=request.POST.get("email")
-        equipment=request.POST.get("equipment")
-        phone=request.POST.get("phone")
-        week=request.POST.get("week")
-        return render(request,'training.html',{"message":"Training booked"})
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        equipment = request.POST.get("equipment")
+        number = request.POST.get("phone")
+        days = request.POST.get("days")
+        quantity = request.POST.get("quantity")
+        return render(request, 'training.html', {"message": "Booking Successful"})
     else:
-        current_user=request.user
-        equipment=request.GET.get("equipment")
-        price=request.GET.get("price")
-    data = {
-        "user": current_user,
-        "equipment": equipment,
-        "price": price
-    }
-
-    return render(request,'training.html',{"data":data})
-
-
+        current_user = request.user
+        equipment = request.GET.get("equipment")
+        price = request.GET.get("price")
+        data = {
+            "user": current_user,
+            "equipment": equipment,
+            "price": price
+        }
+    return render(request, 'training.html', {"data": data})
 
 
